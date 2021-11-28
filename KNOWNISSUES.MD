@@ -34,6 +34,10 @@ The alert 'dot' under the Alert List is an icon, this is located in `Images/snow
 
 The class it uses is `.alert-container .list .new .remark`, 
 
+## Reports Page
+### Report Icon
+`icon-report-stock.png` needs replaced as the background is blue within the png, it's located here `Images/icon-report-stock.png`.
+
 ## DevExpress
 Snow uses DevExpress for a lot of the components in the platform, the ones I've changed are at the bottom of `custom.css`.  It's hit or miss on whether these look any good, so if you want to remove them just remove everything after `/* Dev Express :: Start */`.
 
