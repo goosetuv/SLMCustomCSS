@@ -1,0 +1,517 @@
+/*
+
+    Author: Laim McKenzie
+    Date: 
+    Created for Snow License Manager 9.17, may work on previous/newer versions.
+    GitHub Repo: https://github.com/goosetuv/SnowLicenseManager-CustomCSS
+
+    I've tried to comment this as much as I can but good lord.  
+    So many classes for the exact same thing. :(
+
+    ---- !!! LICENSE !!! ----
+    Under the MIT license, a copy of the license and copyright notice must be included 
+    in any copy of this licensed material.  Please do not remove it.
+
+    MIT License
+
+    Copyright (c) 2021 Laim McKenzie
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+
+*/
+
+/* Color scheme, change these to what you want and everything else will update.  
+   No colors are hardcoded. */
+   :root {
+    --lm-primary: #B68CB8;
+    --lm-secondary: #6461A0;
+    --lm-tertiary: #EFBDEB; 
+    --lm-quaternary: #FFF; /*not in use*/
+    --lm-light-grey: #E1E4E8;
+    --lm-danger: #8b0000; /* replaces 'red' */
+    --lm-white: #FAFAFA; /* not true white, slightly shaded */
+    --lm-black: #1B1F23; /* not true black, slighty shaded */
+}
+
+body a {
+    color: var(--lm-primary) !important;
+}
+
+body a:hover {
+    color: var(--lm-tertiary) !important;
+}
+
+/* Logos :: Start */
+
+/* Login Page Logo */
+.login_body .logo-container .logo { 
+    background: url("/content/lm-custom/logos/LoginLogo.png") no-repeat 0 0 transparent; /* Ideal Size: 350x34 */
+    background-size: 100% auto;
+}
+
+/* Navigation Bar Logo */
+.logo-container .logo-holder, 
+.hd-TopNav_LogoItem .logo-holder { 
+    background: url("/content/lm-custom/logos/NavLogo.png") no-repeat 0 0 transparent; /* Ideal Size: 247x24*/
+    background-size: 100% auto;
+}
+
+/* About page Logo */
+.swui-about-system .logo-holder {
+    background: url("/content/lm-custom/logos/AboutLogo.png") no-repeat 0 0 transparent; /* Ideal Size: 420x41*/
+    background-size: 100% auto;
+}
+
+/* Logos :: End */
+
+/* Login Page :: Start */
+body.login_body { /* Login page background */
+    background-color: var(--lm-primary);
+}
+
+.login_body .icon-window .icon-holder { /* The icon holder below the logo */
+    background-color: var(--lm-primary);
+}
+
+.login_body .loading { /* Loading icon once you click submit */
+    background: url("/content/lm-custom/custom_images/loading-buffering.gif") no-repeat 50% 50% var(--lm-primary) !important;
+  }
+/* Login Page :: End */
+
+/* Navigation Bar :: Start */
+
+.container-header, 
+.hd-TopNav {
+    background-color: var(--lm-primary) !important;
+    color: var(--lm-white) !important;
+}
+
+.swui-navbar-default .swui-navbar-nav .caret
+{
+    color: var(--lm-secondary) !important;
+}
+
+.hd-TopNav_MenuCaret {
+    border-top: 4px solid var(--lm-secondary) !important;
+}
+
+.swui-navbar-default .swui-navbar-nav .selected { /* If a nav menu item is active */
+    background: var(--lm-secondary);
+}
+
+.swui-navbar-default .swui-navbar-nav .selected:hover { /* If the nav menu item is ACTIVE and HOVERED */
+    background: var(--lm-secondary); 
+}
+
+/*  I have no idea how to comment these.  They're for the top nav bar on pages with /app/ in their URL.
+    Snow changed its CSS file when the /app/ pages appeared and it makes absolutely no sense. 
+    These are navbar elements though.  I'm sorry, I'll document this more eventually.  Snow, why. 
+    It's 1AM, this is horrific.
+*/
+
+.hd-TopNav_MenuListItemLink { /* If its a nav item on /app/ pages */
+    color: var(--lm-white) !important;
+}
+
+.hd-TopNav_MenuList .selected { /* If a nav item is selected on /app/ pages */
+    background: var(--lm-secondary);
+}
+
+.hd-TopNav_MenuListItem:focus-within .hd-TopNav_MenuListItemLink,
+.hd-TopNav_UserHolder:focus-within .hd-TopNav_UserMenuLink{ /* If a nav item dropdown is in focus on /app/ pages */
+    background: var(--lm-secondary);
+}
+
+/* .hd-TopNav_MenuList .selected a {
+    color: var(--lm-white) !important;
+} */
+
+.hd-TopNav_MenuListItemLink:hover { /* If a nav item is hovered on /app/ pages */
+    background-color: var(--lm-secondary) !important;
+    color: var(--lm-white) !important;
+}
+
+.hd-TopNav_MenuListItemLink[aria-pressed=true] { /* If a nav item is clicked on /app/ pages */
+    background: var(--lm-secondary);
+}
+
+.hd-TopNav_UserMenuLink:focus, 
+.hd-TopNav_UserMenuLink:hover { /* if the admin dropdown on the top right is in focus or hovered on /app/ pages */
+    background-color: var(--lm-secondary);
+}
+
+.menu-item:focus-within .swui-navbar-text { /* If nav menu item is in focus (clicked) */
+    background-color: var(--lm-secondary);;
+}
+
+.swui-navbar-default .swui-navbar-nav > li:hover, /* Nav menu items that aren't the currently selected one */
+.swui-navbar-default .swui-navbar-nav > li:focus {
+  background: var(--lm-secondary);
+  cursor: pointer;
+}
+
+.swui-navbar-admin:focus { /* if the admin dropdown on the top right is in focus */
+    background: var(--lm-secondary);
+}
+
+.swui-navbar-admin .swui-btn:hover, /* if any of the buttons on admin dropdown on the top right is in focus or hovered */
+.swui-navbar-admin .swui-btn:focus {
+  background: var(--lm-secondary);
+}
+
+.swui-navbar-admin .swui-btn .caret { /* the lil triangle on the admin dropdown */
+    color: var(--lm-secondary);
+}
+
+.swui-navbar-admin.open .swui-btn { /* color of the admin dropdown buttons */
+    background: var(--lm-primary);
+}
+
+.swui-navbar-admin:focus-within { /* the color of the admin dropdown (where ur name is) if a button on the dropdown is selected */
+    background-color: var(--lm-primary);
+}
+/* Navigation Bar :: End */
+
+/* About Page :: End */
+.swui-about-system {
+    background-color: var(--lm-primary) !important;
+}
+
+.swui-about-system .text .version, 
+.swui-about-system .text .build {
+    font-weight: bolder;
+}
+/* About Page :: End */
+
+/* Snowboard :: Start */
+
+.swui-dropdown .swui-dropdown-menu>li.selected { /* The dropdown when you click to change Snowboard */
+    background: var(--lm-light-grey);
+}
+
+.swui-options-link.open, .tb-ContextMenu_SecondaryTrigger[aria-expanded=true] { /* the three lil dots background */
+    background-color: var(--lm-primary);
+}
+
+.swui-options-link span.dot, .tb-ContextMenu_TriggerDot  { /* the three lil dots on the top right next to the column selector etc */
+    background-color: var(--lm-secondary);
+}
+
+div.dxc-tooltip svg g text tspan { /* Changes the color of the inventory stats widget tooltip, not perfect because there's no class/id names but alas. */
+    fill: var(--lm-primary) !important;
+}
+
+.widget-ex-link a { /* The external link 'image' next to things like 'view data' */
+    background-position: right 1px !important; 
+}
+
+a.jump-to-link { /* The external link 'image' next to things like 'view data', updated icon from https://www.freepik.com */
+    background: url("/content/lm-custom/custom_images/external-link-16.png") no-repeat scroll right 0 rgba(0,0,0,0);
+    background-size: 13px;
+}
+
+.alert-container .warning-tab .notification { 
+    background-color: var(--lm-primary);
+}
+/* Snowboard :: End */
+
+/* Import Page - AdminImport.aspx :: Start */
+.swui-panel-nav .title {
+    color: var(--lm-primary) !important;
+}
+
+.swui-panel-nav:hover {
+    background: var(--lm-light-grey);
+    cursor: pointer;
+}
+
+.swui-panel-nav:hover .title {
+    color: var(--lm-secondary);
+}
+/* Import Page - AdminImport.aspx :: End */
+
+/* app/#/administration :: Start */
+
+.sw-MenuTiles .sw-Text_HeadingThree {
+    color: var(--lm-primary) !important;
+}
+
+.mt-MenuTiles_Item:hover{
+    background: var(--lm-light-grey);
+}
+
+.mt-MenuTiles_IconHolder {
+    background-color: var(--lm-primary);
+}
+
+    /* Compliance Exclusions :: Start */
+    .eb-EditBlock_Iconholder {
+        background-color: var(--lm-primary);
+    }
+
+    .o-Icon-arrow {
+        fill: var(--lm-secondary);
+    }
+    .o-Button-primary_Ghost {
+        border: 1px solid var(--lm-primary);
+    }
+
+    .o-Button-primary_Ghost:hover, 
+    .o-Button-primary_Ghost:focus{
+        background-color: var(--lm-primary);
+        color: var(--lm-white) !important;
+    }
+
+    /* Compliance Exclusions :: End */
+
+    /* Notification Page :: Start */
+    .sw-ButtonTogglePanel_Item-active {
+        background-color: var(--lm-primary);
+    }
+    
+    .sw-ButtonTogglePanel_Item-active:hover,
+    .sw-ButtonTogglePanel_Item-active:focus,
+    .sw-ButtonTogglePanel_Item-active:active {
+        background-color: var(--lm-secondary);
+    }
+    /* Notification Page :: End */
+
+/* app/#/administration :: End */
+
+/* Snow Warning... thing? :: Start */
+.sw-Rail_Item-info .sw-Rail_Icon {
+    background-color: var(--lm-primary);
+}
+
+.sw-Rail_Item-info {
+    padding: 10px;
+    background-color: var(--lm-secondary);
+    color: var(--lm-white);
+}
+
+.sw-Rail_LabelText {
+    color: var(--lm-white);
+}
+
+.sw-Rail_Item-info .sw-Rail_ListItem:before {
+    background-color: var(--lm-primary);
+}
+/* Snow Warning... thing? :: End */
+
+/* License / Contract :: Start */
+
+.swui-detail .swui-detail-item .icon-holder { 
+    background-color: var(--lm-primary);
+}
+
+.swui-detail .swui-detail-item .red .icon-holder, .swui-detail .swui-detail-item .critical .icon-holder { 
+    background-color: var(--lm-danger);
+}
+/* License / Contract :: End */
+
+/* /app/ pages with side search bar :: Start */
+.sw-SearchForm_LayoutSlider.opened .c-Search_Bar-icon.active { /* filter/search option on the left hand side of pages like /app/computers */
+    color:var(--lm-white);
+    border-right:none;
+    background-color: var(--lm-secondary);
+}
+
+.sw-SearchForm_LayoutSlider.opened .c-Search_Bar-icon:hover { /* filter/search option on the left hand side of pages like /app/computers */
+    background-color: var(--lm-secondary);
+}
+
+/* .sw-SearchForm_LayoutSlider.opened .c-Search_Bar-icon:active{
+    background-color: var(--lm-secondary);
+} */
+
+.c-Search_Bar-icon:hover { /* filter/search option on the left hand side of pages like /app/computers */
+    color: var(--lm-white) !important;
+    background-color: var(--lm-secondary);
+}
+
+.c-Search_Bar-icon:active { /* filter/search option on the left hand side of pages like /app/computers */
+    color: var(--lm-white) !important;
+    background-color: var(--lm-secondary);
+}
+/* /app/ pages with side search bar :: End */
+
+/* /app/#imports/ :: Start */
+
+
+[type=radio]:focus+.o-Radio_Label .o-Radio_Faux{ /* Radio Button */
+    border:1px solid var(--lm-primary);
+}
+
+[type=radio]:checked:not(:active):focus+.o-Radio_Label .o-Radio_Faux{ /* Radio Button */
+    border:1px solid var(--lm-secondary);
+}
+
+[type=radio]:checked+.o-Radio_Label .o-Radio_Faux{ /* Radio Button */
+    border:1px solid var(--lm-secondary);
+}
+
+[type=radio]:checked+.o-Radio_Label .o-Radio_Faux:after{ /* Radio Button */
+    background-color:var(--lm-secondary);
+}
+
+/* /app/#imports/ :: End */
+
+/* Compliance Running :: Start */
+.swui-status .swui-status-item.started .icon {
+    background-color: var(--lm-primary) !important;
+}
+/* Compliance Running :: End */
+
+/* Wizard Page :: Start */
+
+.wizard-page .dxucBrowseButton_SLM {
+    background-color: var(--lm-primary);
+}
+
+.wizard-page .dxucBrowseButton_SLM a {
+    color: var(--lm-white) !important;
+}
+
+/* Wizard Page :: End */
+
+/* General things I have no idea what they are or don't fit a section, but they were blue */
+.swui-dropdown-highlight {
+    background-color: var(--lm-secondary);
+}
+
+.swui-system-status-inner .icon-holder,
+.swui-panel-item .holder-icon { /* the background to a bunch of the icons in the platform */
+    background-color: var(--lm-primary);
+}
+
+.tools-container .swui-btn-group .group-item.open>.swui-btn, 
+.open .hd-EditTools_ItemAction { /* I think this is the buttons on the context menu under the nav but honestly I've no idea */
+    background-color: var(--lm-primary);
+    border-color: var(--lm-secondary)
+}
+
+.swui-btn-light-blue, 
+.swui-btn-default, 
+.o-Button-primary, 
+.sw-Button-primary {
+    background-color: var(--lm-primary);
+    color: var(--lm-white) !important;
+    border: 1px solid var(--lm-secondary);
+}
+
+.swui-btn-light-blue:hover, 
+.swui-btn-default:hover, 
+.o-Button-primary:hover,
+.sw-Button-primary:hover,
+.hd-EditTools_ItemAction.icon-dujstats-default:hover {
+    background-color: var(--lm-tertiary);
+    color: var(--lm-light-grey) !important;
+    
+}
+
+.swui-btn-light-blue:focus, 
+.swui-btn-default:focus, 
+.o-Button-primary:focus,
+.sw-Button-primary:focus,
+.hd-EditTools_ItemAction.icon-dujstats-default:focus {
+    background-color: var(--lm-primary);
+    color: var(--lm-white) !important;
+    border: 1px solid var(--lm-secondary);
+}
+
+.swui-btn-light-blue:active, 
+.swui-btn-default:active, 
+.o-Button-primary:active,
+.sw-Button-primary:active,
+.hd-EditTools_ItemAction.icon-dujstats-default:active {
+    background-color: var(--lm-tertiary);
+    color: var(--lm-light-grey) !important;
+    outline: none;
+}
+
+.tools-container .swui-btn-group.open .print+.swui-btn-dd-toggle:hover {
+	background-color: var(--lm-primary);
+	color: #fff;
+}
+
+.tools-container .swui-btn-group.open .print+.swui-btn-dd-toggle {
+    background-color: var(--lm-primary);
+	color: #fff;
+}
+
+.swui-pane-loading .loading {
+    background: url("/content/lm-custom/custom_images/loading-buffering.gif") no-repeat;
+}
+
+.swui-loading-md .inner {
+    background: url("/content/lm-custom/custom_images/loading-buffering.gif") center center no-repeat #FFF;
+}
+
+.swui-dialog.loading .dialog-preloader .preloader:before,
+.swui-dialog.loading .dialog-preloader .preloader:after {
+    background-color: var(--lm-primary) !important;
+}
+
+
+/* Dev Express :: Start */
+
+/*
+    This is CSS rules for the 'Dev Express' elements that Snow uses. 
+    These might not be perfect and you might find that you hate them, 
+    so I've put them at the bottom so it's easier to just remove the lot if you so wish.
+    DevExpress: https://www.devexpress.com/
+*/
+
+.dx-row.dx-data-row.dx-column-lines:hover {  
+    background-color: var(--lm-secondary);
+    color: var(--lm-white); 
+}  
+
+.dx-row.dx-data-row.dx-column-lines.dx-selection:hover { 
+    background-color: var(--lm-secondary);
+    color: var(--lm-white); 
+}
+
+.dx-datagrid-rowsview .dx-selection.dx-row:hover>td,.sw-PreviewTabs_Main-flex .dx-datagrid-rowsview .dx-selection.dx-row>td{
+    background-color: var(--lm-secondary);
+    color: var(--lm-white); 
+}
+
+.dx-checkbox-indeterminate .dx-checkbox-icon,.dx-checkbox-checked .dx-checkbox-icon {
+    color: var(--lm-secondary);
+}
+
+.dx-checkbox.dx-state-hover .dx-checkbox-icon { 
+    border: 1px solid var(--lm-secondary);
+}
+
+.sw-Checkbox_Input:checked+.sw-Checkbox_Label:before{
+
+    /*
+    
+    You can change the color of this tick if you want by going to https://easy64.org/svg-editor/
+    and pasting in this SVG, and changing the FILL to your prefered color, then copying the output from the bottom to replace the below.
+
+    SVG: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12.1"><path fill="#2F363D" d="M5.6 12.1L0 6.5l1.7-1.7 3.9 3.9L14.3 0 16 1.7z"/></svg>
+
+    */
+
+    background-image:url(data:image/svg+xml;base64,DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDE2IDEyLjEiPjxwYXRoIGZpbGw9IiMyRjM2M0QiIGQ9Ik01LjYgMTIuMUwwIDYuNWwxLjctMS43IDMuOSAzLjlMMTQuMyAwIDE2IDEuN3oiLz48L3N2Zz4=);
+}
+/* Dev Express :: End */
